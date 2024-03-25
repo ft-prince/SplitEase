@@ -14,6 +14,10 @@ pnpm dev
 # or
 bun dev
 ```
+![WhatsApp Image 2024-03-26 at 04 19 50](https://github.com/ft-prince/SplitEase/assets/128713671/63e9bb64-03ee-42eb-8aeb-832d21f0c86a)
+![WhatsApp Image 2024-03-26 at 04 18 23](https://github.com/ft-prince/SplitEase/assets/128713671/2da8788c-0c03-4b30-b439-cb5eb6d8c965)
+
+
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the result. You can edit the page by modifying `app/page.tsx`. The page will auto-update as you make changes.
 
