@@ -34,7 +34,6 @@ const Expense = () => {
         friends: [],
         paidByFriend: parseFloat(paidByFriend),
         dateTime: moment().format("MMMM Do YYYY, h:mm:ss a"),
-
       };
       setExpenses([...expenses, newExpense]);
       setExpenseName("");
@@ -119,9 +118,9 @@ const Expense = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex">
+    <div className="min-h-screen bg-gray-900 text-white flex flex-col md:flex-row">
       {/* Left Sidebar */}
-      <div className="flex-none w-1/5 bg-gray-800 p-4">
+      <div className="flex-none w-full md:w-1/5 bg-gray-800 p-4">
         <h2 className="text-xl font-semibold mb-4">Expense Tracker</h2>
         <input
           type="text"
@@ -146,18 +145,14 @@ const Expense = () => {
       </div>
 
       {/* Middle Section */}
-      <div
-        className="flex-grow bg-gray-900 p-4"
-        ref={contentRef}
-        style={{ overflowY: "hidden" }}>
+      <div className="flex-grow bg-gray-900 p-4 flex flex-wrap justify-center md:justify-start">
         {expenses.map((expense, expenseIndex) => (
           <div
             key={expenseIndex}
-            className="bg-gray-800 rounded-lg shadow-xl p-8 mb-4">
+            className="bg-gray-800 rounded-lg shadow-xl p-8 mb-4 md:mr-4 md:last:mr-0">
             <h2 className="text-xl font-semibold mb-4">{expense.name}</h2>
             <div className="mb-4">
-            <p className="text-gray-400 text-sm mb-2">{expense.dateTime}</p> {/* Display date and time for each expense */}
-
+              <p className="text-gray-400 text-sm mb-2">{expense.dateTime}</p>
               <input
                 type="text"
                 value={friendInputs[expenseIndex]}
@@ -203,21 +198,24 @@ const Expense = () => {
             </div>
             <div className="mt-4">
               <h3>Total Bill Amount: {expense.billAmount}</h3>
-              <h3>Total Owed Amount: {calculateOwedAmount(expense)}</h3>{" "}
-              {/* Display total owed amount */}
+              <h3>Total Owed Amount: {calculateOwedAmount(expense)}</h3>
             </div>
           </div>
         ))}
       </div>
 
       {/* Right Sidebar */}
-      <div className="flex-none w-1/5 bg-gray-800 p-4">
-        <div className="bg-gray-700 rounded-lg shadow-xl p-8 mb-4">
-          <h2 className="text-xl font-semibold mb-4">Total Bill Amount</h2>
+      <div className="flex-none w-full md:w-1/5 bg-gray-800 p-4">
+        <div className="bg-gray-700 rounded-lg shadow-xl p-4 mb-2 md:mb-4">
+          <h2 className="text-xl font-semibold mb-2 md:mb-4">
+            Total Bill Amount
+          </h2>
           <h3 className="text-lg text-white">{calculateTotalBillAmount()}</h3>
         </div>
-        <div className="bg-gray-700 rounded-lg shadow-xl p-8 mb-4">
-          <h2 className="text-xl font-semibold mb-4">Total Paid Amount</h2>
+        <div className="bg-gray-700 rounded-lg shadow-xl p-4 mb-2 md:mb-4">
+          <h2 className="text-xl font-semibold mb-2 md:mb-4">
+            Total Paid Amount
+          </h2>
           <h3 className="text-lg text-white">{calculateTotalPaidAmount()}</h3>
         </div>
       </div>
